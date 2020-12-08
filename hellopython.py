@@ -25,7 +25,8 @@ for i in itertools.permutations(numberlist,3):
 # 60万到100万之间时，高于60万元的部 分，可提成1.5%，
 # 高于100万元时，超过100万元的部分按1%提成，
 # 从键盘输入当月 利润I，求应发放奖金总数?
-profit=int(input('show me your money:'))
+##profit=int(input('show me your money:'))
+profit=100
 commision=0
 saliarylist =[100000,100000,200000,200000,400000]
 commisionrate =[0.1,0.075,0.05,0.03,0.015,0.01]
@@ -39,3 +40,8 @@ for i in range(len(saliarylist)):
         profit-=saliarylist[i]
 commision+=profit*commisionrate[-1]
 print(commision)
+##一个整数，它加上100后是一个完全平方数，再加上168又是一个完全平方数，请问该数是多少?
+n=0
+while (n+1)**2 -n*n<=168:
+    n+=1
+print(n+1)
