@@ -45,3 +45,63 @@ n=0
 while (n+1)**2 -n*n<=168:
     n+=1
 print(n+1)
+
+##输入某年某月某日，判断这一天是这一年的第几天?
+'''
+def isLeapYear(y):
+    return (y%400==0 or (y%4==0 and y%100!=0))
+DofM=[0,31,28,31,30,31,30,31,31,30,31,30] 
+res=0
+year=int(input('Year:')) 
+month=int(input('Month:')) 
+day=int(input('day:'))
+if isLeapYear(year): 
+    DofM[2]+=1
+for i in range(month): 
+    res+=DofM[i]
+print(res+day)
+'''
+## 排序 sorted 函数
+sortlist =[1,3,5,6,3,7,21,78,32,45,56,44,66,78,90,21]
+strtest='qwer1234'
+print(sorted(sortlist))
+print(''.join(reversed(strtest)))
+
+##斐波那契数列
+'''
+target=int(input())
+a,b=1,1
+for i in range(target-1):
+    a,b=b,a+b
+print(a)
+'''
+
+## copy 函数
+import copy
+a = [1,2,3,4,['a','b']]
+
+b = a					# 赋值
+c = a[:]				# 浅拷贝
+d = copy.copy(a)		# 浅拷贝
+e = copy.deepcopy(a)	# 深拷贝
+
+a.append(5)
+a[4].append('c')
+
+print('a=',a)
+print('b=',b)
+print('c=',c)
+print('d=',d)
+print('e=',e)
+
+##实例：九九乘法表
+for i in range(1,10):
+    for j in range(1,i+1):
+        print('%d*%d=%2ld '%(i,j,i*j),end='')
+    print()
+
+##实例：暂停一秒输出
+import time
+for i in range(4):
+    print(str(int(time.time()))[-2:])
+    time.sleep(1)
