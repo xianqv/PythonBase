@@ -1,4 +1,6 @@
 import itertools
+import datetime
+import math
 ##pyhton 中可随时修改变量的值 但是python始终记录最新的值
 ##python 运行发生错误时 会提供一个traceback 来指出发生错误的地方
 
@@ -105,3 +107,91 @@ import time
 for i in range(4):
     print(str(int(time.time()))[-2:])
     time.sleep(1)
+
+## 兔子繁殖 
+'''
+month=int(input('繁殖几个月？： '))
+month_1=1
+month_2=0
+month_3=0
+month_elder=0
+for i in range(month):
+    month_1,month_2,month_3,month_elder=month_elder+month_3,month_1,month_2,month_elder+month_3
+    print('第%d个月共'%(i+1),month_1+month_2+month_3+month_elder,'对兔子')
+    print('其中1月兔：',month_1)
+    print('其中2月兔：',month_2)
+    print('其中3月兔：',month_3)
+    print('其中成年兔：',month_elder)
+'''
+##素数 
+for i in range(100,200):
+    for j in range(2,round(math.sqrt(i))+1):
+        if i%j==0:
+            break
+    else:
+        print(i)
+
+## 弹球高度
+high=100
+totalhigh=100
+for i in range(10):
+    high=high/2
+    totalhigh += high
+    print(high)
+print(totalhigh)
+##猴子吃桃
+peach=1
+for i in range(9):
+    peach=(peach+1)*2
+print(peach)
+
+a = ['one', 'two', 'three']
+print(a[::-1])
+##打印水仙花数 153 370 371 407
+for i in range(100,999):
+    s=str(i)
+    one=int(s[-1]) 
+    ten=int(s[-2]) 
+    hun=int(s[-3])
+    if i == one**3+ten**3+hun**3:
+        print(i)
+
+print(datetime.date.today())
+print(datetime.date(2333,2,3)) 
+print(datetime.date.today().strftime('%d/%m/%Y')) 
+day=datetime.date(1111,2,3) 
+day=day.replace(year=day.year+22)
+print(day)
+
+##字符串统计
+string=input("输入字符串:") 
+alp=0
+num=0
+spa=0
+oth=0
+for i in range(len(string)):
+        if string[i].isspace(): 
+            spa+=1
+        elif string[i].isdigit(): 
+            num+=1
+        elif string[i].isalpha(): 
+            alp+=1
+        else: 
+            oth+=1
+print('space: ',spa) 
+print('digit: ',num) 
+print('alpha: ',alp) 
+print('other: ',oth)
+
+##1000以内的完数 6 28 496
+def factor(num): 
+    target=int(num)
+    res=set()
+    for i in range(1,num):
+        if num%i==0: 
+            res.add(i)
+            res.add(num/i)
+    return res
+for i in range(2,1001):
+    if i==sum(factor(i))-i:
+        print(i)
