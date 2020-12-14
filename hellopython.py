@@ -1,6 +1,7 @@
 import itertools
 import datetime
 import math
+import random
 ##pyhton 中可随时修改变量的值 但是python始终记录最新的值
 ##python 运行发生错误时 会提供一个traceback 来指出发生错误的地方
 
@@ -12,7 +13,7 @@ total =0
 for i in numberlist:
     for j in numberlist:
         for k in numberlist:
-            if((i!=j)and(j!=k)and(k!=i)):
+            if((i!=j)&(j!=k)&(k!=i)):
                 print(i,j,k)
                 total+=1
 print (total)
@@ -132,14 +133,14 @@ for i in range(100,200):
         print(i)
 
 ## 弹球高度
-high=100
+high=200
 totalhigh=100
 for i in range(10):
     high=high/2
     totalhigh += high
     print(high)
 print(totalhigh)
-##猴子吃桃
+##猴子吃桃 1534个
 peach=1
 for i in range(9):
     peach=(peach+1)*2
@@ -195,3 +196,38 @@ def factor(num):
 for i in range(2,1001):
     if i==sum(factor(i))-i:
         print(i)
+
+##素数
+'''
+lo=int(input('下限:')) 
+hi=int(input('上限:')) 
+for i in range(lo,hi+1):
+    if i > 1:
+        for j in range(2,i):
+            if (i % j) == 0: 
+                break
+        else: 
+            print(i)
+'''
+lis=[1,10,100,1000,10000,100000] 
+print('第二种实现:') 
+lis.reverse()
+print(lis)
+
+sum=0
+for i in range(1,101):
+    sum +=i
+print(sum)
+
+
+print(random.uniform(10,40))
+
+s1='aabbxuebixuebi' 
+s2='ab'
+s3='xue' 
+print(s1.find(s2)) 
+print(s1.find(s3))
+
+delimiter = ','
+mylist = ['Brazil', 'Russia', 'India', 'China'] 
+print(delimiter.join(mylist))
